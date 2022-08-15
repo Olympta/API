@@ -2,6 +2,7 @@ node_modules/
 yarn.lock
 dist/
 yarn-error.log
+CA-PEM/
 
 pass.txt
 cert.p12
