@@ -5,7 +5,7 @@ import { FastifyRequest, FastifyReply } from 'fastify'
 // declare info route
 export const infoRoute = (fastify, opts, next) => {
     // endpoint to install app without version
-    fastify.get('/info/:appName', (request: FastifyRequest, reply: FastifyReply) => {
+    fastify.get('/appinfo/:appName', (request: FastifyRequest, reply: FastifyReply) => {
         // get name from parameters
         let name = request.params['appName']
         // send to handler
@@ -14,7 +14,7 @@ export const infoRoute = (fastify, opts, next) => {
     )
 
     // endpoint to install app with version
-    fastify.get('/info/all', (request: FastifyRequest, reply: FastifyReply) => {
+    fastify.get('/appinfo/all', (request: FastifyRequest, reply: FastifyReply) => {
         // send to handler
         allInfo(request, reply)
     }

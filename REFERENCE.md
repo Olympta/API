@@ -28,7 +28,7 @@
 #### Fetch information of an app.
 
 ```http
-  GET /info/${name}
+  GET /appinfo/${name}
 ```
 
 | Parameter | Type     | Description                |
@@ -38,7 +38,7 @@
 #### Fetch information of all apps.
 
 ```http
-  GET /info/all
+  GET /appinfo/all
 ```
 
 ## Certificate
