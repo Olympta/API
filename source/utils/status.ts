@@ -1,6 +1,9 @@
 // imports
 import { execSync } from 'child_process'
+import { performance } from 'perf_hooks'
 import pino from 'pino'
+// define app cache object
+let infoCache = { lastUpdate: 0, info: {} }
 
 /**
  * Fetch the info from the cert checker script.
@@ -8,8 +11,18 @@ import pino from 'pino'
  **/
 let fetchInfo = () => {
     try {
-        let stdout = execSync('node ./certcheck/index.js /var/www/html/jailbreaks.app/public_html --json')
-        return JSON.parse(stdout.toString())
+        // get time (for cache)
+        let time = performance.now()
+        // compare time to last update
+        if (infoCache.lastUpdate == 0 || time - infoCache.lastUpdate > 300000) {
+            pino().info('Starting certificate cache.')
+            let stdout = execSync(
+                'node ./certcheck/index.js /var/www/html/jailbreaks.app/public_html --json'
+            )
+            infoCache.lastUpdate = time
+            infoCache.info = JSON.parse(stdout.toString())
+        }
+        return infoCache.info
     } catch (e) {
         pino().error(
             `Failed to fetch certificate info. (f:fetchInfo,n:utils/status.ts) (${e})`

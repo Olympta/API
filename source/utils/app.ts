@@ -43,7 +43,7 @@ export const getApps = async (): Promise<App[]> => {
         // get time (for cache)
         let time = performance.now()
         // compare time to last update
-        if (appsCache.lastUpdate == 0 || -appsCache.lastUpdate > 300000) {
+        if (appsCache.lastUpdate == 0 || time - appsCache.lastUpdate > 300000) {
             // check if apps haven't been initialized
             if (appsCache.apps.length == 0) {
                 pino().info('Starting app cache.')
