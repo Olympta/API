@@ -1,0 +1,7 @@
+node_modules/
+yarn.lock
+dist/
+yarn-error.log
+
+pass.txt
+cert.p12

@@ -1,0 +1,3 @@
+[submodule "certcheck"]
+	path = certcheck
+	url = git@github.com:jailbreaksapp/certcheck

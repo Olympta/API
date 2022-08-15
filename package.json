@@ -1,0 +1,29 @@
+{
+    "type": "module",
+    "scripts": {
+        "build": "tsc",
+        "clean": "rm -rf ./dist",
+        "start": "node dist/main.js | pino-pretty -c",
+        "scratch": "rm -rf ./dist && tsc && node dist/main.js | pino-pretty -c",
+        "watch": "tsc-watch --onSuccess \"node ./dist/main.js\" | pino-pretty -c",
+        "format": "prettier --write \"source/**/*.ts\""
+    },
+    "prettier": {
+        "trailingComma": "none",
+        "tabWidth": 4,
+        "semi": false,
+        "singleQuote": true
+    },
+    "dependencies": {
+        "axios": "^0.27.2",
+        "fastify": "^4.4.0",
+        "node-forge": "^1.3.1",
+        "ocsp": "^1.2.0",
+        "pino": "^8.4.1",
+        "pino-pretty": "^9.0.0",
+        "typescript": "^4.7.4"
+    },
+    "devDependencies": {
+        "@types/node": "^18.7.3"
+    }
+}
