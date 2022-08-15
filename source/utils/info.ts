@@ -21,7 +21,7 @@ export const appInfo = (
         getApps().then((apps) => {
             // loop through the apps searching for the one we were told to find
             for (let appobj of apps) {
-                if (appobj.name.toLowerCase() == name.toLowerCase())
+                if (appobj.name.toLowerCase().replaceAll(' ', '') == name.toLowerCase().replaceAll(' ', ''))
                     app = appobj
             }
             // if we couldn't find the app, exit
