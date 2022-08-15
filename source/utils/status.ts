@@ -9,6 +9,7 @@ import pino from 'pino'
 let fetchInfo = () => {
     try {
         let stdout = execSync('node ./certcheck/index.js /var/www/html/jailbreaks.app/public_html --json')
+        pino().info(stdout.toString())
         return JSON.parse(stdout.toString())
     } catch (e) {
         pino().error(

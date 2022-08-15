@@ -16,7 +16,7 @@ app.all('/*', (request, reply) => {
 
 app.register(infoRoute)
 app.register(installRoute)
-//app.register(statusRoute)
+app.register(statusRoute)
 
 // start server
 app.listen({ port: port, host: '0.0.0.0' }).then(() => {
