@@ -23,6 +23,24 @@
 | `name`      | `string` | **Required**. Name of the app to install. |
 | `version`      | `string` | **Required**. Version of the app to install. |
 
+## App information
+
+#### Fetch information of an app.
+
+```http
+  GET /info/${name}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | **Required**. Name of the app to fetch. |
+
+#### Fetch information of all apps.
+
+```http
+  GET /info/all
+```
+
 ## Certificate
 
 #### Get the certificate status.

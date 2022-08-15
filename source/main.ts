@@ -1,4 +1,5 @@
 // imports
+import { infoRoute } from './routes/info.js'
 import { installRoute } from './routes/installs.js'
 import { statusRoute } from './routes/status.js'
 import fastify from 'fastify'
@@ -13,6 +14,7 @@ app.all('/*', (request, reply) => {
     reply.header('Access-Control-Allow-Headers', 'X-Requested-With')
 })
 
+app.register(infoRoute)
 app.register(installRoute)
 //app.register(statusRoute)
 
