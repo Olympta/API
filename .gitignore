@@ -4,5 +4,6 @@ dist/
 yarn-error.log
 CA-PEM/
 .yarn/
+package-lock.json
 pass.txt
 cert.p12
