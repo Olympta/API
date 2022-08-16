@@ -15,7 +15,10 @@ let fetchInfo = () => {
         let time = performance.now()
         // compare time to last update
         if (infoCache.lastUpdate == 0 || time - infoCache.lastUpdate > 300000) {
-            pino().info('Starting certificate cache.')
+            // check if apps haven't been initialized
+            if (infoCache.info == {}) {
+                pino().info('Starting certificate cache.')
+            }
             let stdout = execSync(
                 'node ./certcheck/index.js /var/www/html/jailbreaks.app/public_html --json'
             )
