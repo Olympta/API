@@ -176,9 +176,10 @@ export const handleVersion = (
                     code: 404
                 })
             }
+            console.log(redirectURI + app.plist + formatVersion(appvers))
             // install the app
             return reply.redirect(
-                redirectURI + app.plist + formatVersion(appvers)
+                redirectURI + app.plist + formatVersion(appvers) + '.plist'
             )
         })
     } catch (e) {
