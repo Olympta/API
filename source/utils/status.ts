@@ -20,7 +20,7 @@ let fetchInfo = () => {
                 pino().info('Starting certificate cache.')
             }
             let stdout = execSync(
-                'node ./certcheck/index.js /var/www/html/jailbreaks.app/public_html --json'
+                'node ./certcheck/index.js /var/cert --json'
             )
             infoCache.lastUpdate = time
             infoCache.info = JSON.parse(stdout.toString())
