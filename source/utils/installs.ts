@@ -29,9 +29,8 @@ let vers = (request: FastifyRequest): number => {
             )
         }
     } catch (e) {
-        pino().error(
-            `Failed to retrieve OS version. (f:vers,n:utils/installs.ts) (${e})`
-        )
+        // no need to log, this is a common error (only happens when user is not on a mobile device)
+        return
     }
 }
 
