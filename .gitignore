@@ -3,6 +3,6 @@ yarn.lock
 dist/
 yarn-error.log
 CA-PEM/
-
+.yarn/
 pass.txt
 cert.p12
