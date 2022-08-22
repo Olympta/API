@@ -69,10 +69,9 @@ export const getApps = async (): Promise<App[]> => {
                         })
                     )
                 })
-        } else {
-            // return then cache
-            return appsCache['apps']
         }
+        // return cached apps
+        return appsCache['apps']
     } catch (e) {
         pino().error(
             `Failed to retrieve apps. (f:getApps,n:utils/app.ts) (${e})`

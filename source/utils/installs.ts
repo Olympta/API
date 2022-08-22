@@ -76,7 +76,10 @@ export const handleNoVersion = (
             })
         }
         // get the apps from the cache or from the server
-        getApps().then((apps) => {
+        getApps().then(async (apps) => {
+            if (!(Symbol.iterator in Object(apps))) {
+                apps = await getApps()
+            }
             // loop through the apps searching for the one we were told to find
             for (let appobj of apps) {
                 if (
@@ -145,7 +148,10 @@ export const handleVersion = (
             })
         }
         // get the apps from the cache or from the server
-        getApps().then((apps) => {
+        getApps().then(async (apps) => {
+            if (!(Symbol.iterator in Object(apps))) {
+                apps = await getApps()
+            }
             // loop through the apps searching for the one we were told to find
             for (let appobj of apps) {
                 if (
