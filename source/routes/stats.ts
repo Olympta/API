@@ -12,8 +12,9 @@ export const statsRoute = (fastify, opts, next) => {
         // get apps
         let apps = await getApps()
         // find app
-        let app = apps.find((app) => app.name.toLowerCase().replaceAll(' ', '') == name)
-        if (app == undefined) {
+        let app = apps.filter(app => app.name.toLowerCase().replaceAll(' ', '') === name.toLowerCase().replaceAll(' ', ''))
+        // make sure app exists
+        if (app[0] == undefined) {
             return reply.send({
                 status: false,
                 message: 'App does not exist.',
@@ -21,7 +22,7 @@ export const statsRoute = (fastify, opts, next) => {
             })
         }
         // send to handler
-        reply.send({downloads: getStat(app)})
+        reply.send({downloads: getStat(app[0])})
     })
 
     // move to next route
