@@ -1,5 +1,6 @@
 // imports
 import { getApps, App } from './app.js'
+import { writeStat } from './stats.js'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import pino from 'pino'
 
@@ -111,6 +112,8 @@ export const handleNoVersion = (
             } else {
                 plistName += `${app.plist}.plist`
             }
+            // write stats
+            writeStat(app)
             // install the app
             return reply.redirect(redirectURI + plistName)
         })
@@ -181,6 +184,8 @@ export const handleVersion = (
                     code: 404
                 })
             }
+            // write stats
+            writeStat(app)
             // install the app
             return reply.redirect(
                 redirectURI + app.plist + formatVersion(appvers) + '.plist'

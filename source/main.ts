@@ -1,6 +1,7 @@
 // imports
 import { infoRoute } from './routes/info.js'
 import { installRoute } from './routes/installs.js'
+import { statsRoute } from './routes/stats.js'
 import { statusRoute } from './routes/status.js'
 import cors from '@fastify/cors'
 import fastify from 'fastify'
@@ -14,6 +15,7 @@ app.register(cors, {'origin': true})
 
 app.register(infoRoute)
 app.register(installRoute)
+app.register(statsRoute)
 app.register(statusRoute)
 
 // start server

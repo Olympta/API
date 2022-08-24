@@ -1,5 +1,6 @@
 node_modules/
 yarn.lock
+data/
 dist/
 yarn-error.log
 CA-PEM/
