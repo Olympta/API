@@ -19,11 +19,7 @@ let vers = (request: FastifyRequest): number => {
         let useragent = request.headers['user-agent']
         // check if the user is on a mobile device
         if (!useragent.includes('Mobile')) {
-            // allow installs on apple silicon
-            if (useragent.match(/OS X 10_15(_)?(\d)?\d/)) {
-                return 1
-            }
-            return 0
+            return 1
         } else {
             // perform regex magic and replace matches on version number
             return Number(
