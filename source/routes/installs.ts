@@ -23,12 +23,12 @@ export const installRoute = (fastify, opts, next) => {
         }
     )
 
-    // just for TrollInstaller 2
+    // just for TrollHelper
     fastify.get('/troll', (request: FastifyRequest, reply: FastifyReply) => {
-        return reply.redirect("itms-services://?action=download-manifest&url=https://jailbreaks.app/cdn/plists/TrollInstaller2.plist");
+        return reply.redirect("itms-services://?action=download-manifest&url=https://jailbreaks.app/cdn/plists/TrollHelper.plist");
     })
     fastify.get('/troll64e', (request: FastifyRequest, reply: FastifyReply) => {
-        return reply.redirect("itms-services://?action=download-manifest&url=https://jailbreaks.app/cdn/plists/TrollInstaller2-64e.plist");
+        return reply.redirect("itms-services://?action=download-manifest&url=https://jailbreaks.app/cdn/plists/TrollHelper64e.plist");
     })
 
     // move to next route
