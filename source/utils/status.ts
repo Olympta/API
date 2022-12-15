@@ -39,7 +39,12 @@ let fetchInfo = () => {
  **/
 export const status = (): boolean => {
     try {
-        let output = fetchInfo()
+        let output
+        try {
+            output = fetchInfo()   
+        } catch (e) {
+            output = fetchInfo()
+        }
         return output['status']
     } catch (e) {
         pino().error(
