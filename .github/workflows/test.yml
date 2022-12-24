@@ -1,0 +1,24 @@
+name: Test build
+
+on:
+	push:
+		branches:
+			- main
+		paths-ignore:
+			- '**/*.md'
+			- '.gitignore'
+
+	pull_request:
+		branches:
+			- main
+		paths-ignore:
+			- '**/*.md'
+			- '.gitignore'
+  
+jobs:
+	build:
+		steps:
+		- uses: actions/checkout@v3
+		- uses: actions/setup-node@v3
+		- run: npm install -g
+		- run: npm run build
