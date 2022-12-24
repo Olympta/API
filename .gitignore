@@ -5,6 +5,7 @@ dist/
 yarn-error.log
 CA-PEM/
 .yarn/
+**/.DS_Store
 package-lock.json
 pass.txt
 cert.p12
