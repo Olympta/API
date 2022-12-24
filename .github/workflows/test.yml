@@ -1,24 +1,25 @@
-name: Test build
+name: Test TypeScript build
 
 on:
-	push:
-		branches:
-			- main
-		paths-ignore:
-			- '**/*.md'
-			- '.gitignore'
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
 
-	pull_request:
-		branches:
-			- main
-		paths-ignore:
-			- '**/*.md'
-			- '.gitignore'
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**/*.md'
+      - '.gitignore'
   
 jobs:
-	build:
-		steps:
-		- uses: actions/checkout@v3
-		- uses: actions/setup-node@v3
-		- run: npm install -g
-		- run: npm run build
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm install -g
+      - run: npm run build
