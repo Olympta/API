@@ -21,5 +21,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
-      - run: npm install -g typescript
+      - run: npm install -g typescript @types/node
       - run: npm run build
