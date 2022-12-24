@@ -16,7 +16,7 @@ let fetchInfo = () => {
         // compare time to last update
         if (infoCache.lastUpdate == 0 || time - infoCache.lastUpdate > 300000) {
             // check if apps haven't been initialized
-            if (infoCache.info == {}) {
+            if (Object.keys(infoCache.info).length === 0) {
                 pino().info('Starting certificate cache.')
             }
             let stdout = execSync(
