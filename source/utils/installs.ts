@@ -213,7 +213,6 @@ export const handleNoVersion = async (
     reply: FastifyReply
 ) => {
     let plistURI = await getPlistNoVersion(name, request, reply)
-    console.log(plistURI)
     return reply.redirect(plistURI)
 }
 
