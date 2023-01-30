@@ -58,6 +58,8 @@ export const getApps = async (): Promise<App[]> => {
                     // set cache time
                     appsCache.lastUpdate = time
                     // map through apps
+                    // reset apps
+                    appsCache['apps'] = []
                     return await Promise.all(
                         response.data.map((app) => {
                             // assign app to object
