@@ -23,6 +23,29 @@
 | `name`      | `string` | **Required**. Name of the app to install. |
 | `version`      | `string` | **Required**. Version of the app to install. |
 
+## App plists
+
+#### Get the plist of an app.
+
+```http
+  GET /plist/${name}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `name` | `string` | **Required**. Name of the app to fetch. |
+
+#### Get the plist of a specific version of an app.
+
+```http
+  GET /plist/${name}/${version}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `name`      | `string` | **Required**. Name of the app to fetch. |
+| `version`      | `string` | **Required**. Version of the app to fetch. |
+
 ## App information
 
 #### Fetch information of an app.
