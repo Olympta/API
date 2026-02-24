@@ -17,20 +17,23 @@ export class App {
     featured: boolean
     latest_version: string
     other_versions: string[]
+    screenshots: string[]
     description: string
     short_description: string
     category: string
+
     constructor(app: any) {
-        this.name = app['name']
-        this.icon = app['icon']
-        this.plist = app['plist']
-        this.developer = app['dev']
-        this.featured = app['featured']
-        this.latest_version = app['version']
-        this.other_versions = app['other_versions']
-        this.description = app['description']
-        this.short_description = app['short-description']
-        this.category = app['category']
+        this.name = app['name'] ?? ''
+        this.icon = app['icon'] ?? ''
+        this.plist = app['plist'] ?? ''
+        this.developer = app['dev'] ?? ''
+        this.featured = app['featured'] ?? false
+        this.latest_version = app['version'] ?? ''
+        this.other_versions = app['other_versions'] ?? []
+        this.screenshots = app['screenshots'] ?? []
+        this.description = app['description'] ?? ''
+        this.short_description = app['short-description'] ?? ''
+        this.category = app['category'] ?? 'other'
     }
 }
 
